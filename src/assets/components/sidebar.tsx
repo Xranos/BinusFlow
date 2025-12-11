@@ -1,51 +1,68 @@
 import { Link } from "react-router-dom";
-
-import DashboardPage from "../../pages/dashboardPage";
-import ConfigPage from "../../pages/configPage";
+import { useState } from "react";
 
 import { FaStickyNote } from "react-icons/fa";
 import { IoMdHome } from "react-icons/io";
 import { IoIosSettings } from "react-icons/io";
-import { use } from "react";
-
+import { FaLeftLong } from "react-icons/fa6";
+import { FaRightLong } from "react-icons/fa6";
 
 function Sidebar() {
-    // const location = useLocation();
-    // const [isExpanded, setIsExpanded] = useState(true);
+    const [isMinimized, setIsMinimized] = useState(true);
     return (
-        <aside className="h-screen w-64 p-2 ">
-            <nav className="h-full flex flex-col bg-gray-800 border rounded-md">
-                <div className="justify-between items-center p-4">
-                    <div className="items-center gap-2 ">
-                        <h1 className="text-red-500 text-3xl p-4 gap-2 flex">
-                            <FaStickyNote /> BinusFlow</h1>
-                    </div>
-                    <div className="flex flex-col justify-between items-left gap-5">
-                        <span className="flex text-2xl text-white gap-2 m-2">
-                            <IoIosSettings className="text-4xl" />
-                            <div className="hover:bg-gray-700 rounded-md p-1 w-full">
-                                <Link to="/">
-                                    <h2>
-                                        Home
-                                    </h2>
-                                </Link>
-                            </div>
-                        </span>
-                        <span className="flex text-2xl text-white gap-2 m-2">
-                            <IoMdHome className="text-4xl" />
-                            <span className="hover:bg-gray-700 rounded-md p-1">
-                                <Link to="/Config">
-                                    <h2>
-                                        Configuration
-                                    </h2>
-                                </Link>
-                            </span>
-                        </span>
-
-                    </div>
-
-
+        <aside className={`h-screen p-2 transition-all duration-300 ${isMinimized ? 'w-20' : 'w-64'}`}>
+            <nav className="h-full flex flex-col bg-[#001BB7] rounded-md gap-5">
+                <div className="flex justify-between gap-4 items-center">
+                    {!isMinimized ? (
+                        <div>
+                            <h1 className="text-3xl text-white flex items-center gap-2  pl-7 pt-4">
+                                <FaStickyNote /> BinusFlow
+                            </h1>
+                        </div>
+                    ) : (
+                        <div className="text-3xl text-white gap-2 flex items-center px-4 pt-4">
+                            <FaStickyNote />
+                        </div>
+                    )}
+                    <button onClick={() => setIsMinimized(!isMinimized)} className={`text-white rounded-2xl  ${isMinimized ? 'absolute left-12 top-3' : ''}`}>
+                        {isMinimized ? <FaRightLong className="bg-[#0046FF] hover:bg-[#001BB7] transition-colors duration-300 text-3xl rounded-2xl m-2 p-1 " />
+                            :
+                            <FaLeftLong className="bg-[#0046FF] hover:bg-[#001BB7] transition-colors duration-300 text-3xl rounded-2xl m-2 p-1" />}
+                    </button>
                 </div>
+
+                {!isMinimized && (
+                    <ul className="flex flex-col gap-6 px-5 text-white">
+                        <li className="flex gap-2 items-center ">
+                            <IoMdHome className="text-3xl" />
+                            <Link to="/" className="flex-1 text-2xl  gap-2 hover:bg-[#0046FF] transition-colors duration-300 rounded-2xl p-2">
+                                Home
+                            </ Link>
+                        </li>
+                        <li className="flex gap-2 items-center ">
+                            <IoIosSettings className="text-3xl" />
+                            <Link to="/config" className="flex-1 text-2xl gap-2 hover:bg-[#0046FF] transition-colors duration-300 rounded-2xl p-2">
+                                Configuration
+                            </ Link>
+                        </li>
+                    </ul>
+                )}
+
+                {isMinimized && (
+                    <ul className="flex flex-col gap-6 px-5 text-white items-center  ">
+                        <li>
+                            <Link to="/" className="block hover:bg-[#0046FF] transition-colors duration-300 rounded-3xl p-2" >
+                                <IoMdHome className="text-3xl" />
+                            </ Link>
+                        </li>
+                        <li>
+                            <Link to="/config" className="block hover:bg-[#0046FF] transition-colors duration-300 rounded-3xl p-2" >
+                                <IoIosSettings className="text-3xl" />
+                            </ Link>
+
+                        </li>
+                    </ul>
+                )}
 
             </nav>
         </aside>

@@ -1,4 +1,4 @@
-import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 // import { useState } from 'react'
 
 import Sidebar from './assets/components/Sidebar.tsx'
@@ -11,13 +11,15 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <div className="bg-gray-[#FF8040]">
-        <Sidebar />
-        <Routes>
-          <Route path= "/" element={<DashboardPage />} />
-          <Route path= "/config" element={<ConfigPage />} />
-        </Routes>
-      </div>
+        <div className="flex h-screen">
+          <Sidebar />
+          <div className='flex-1'>
+            <Routes>
+              <Route path="/" element={<DashboardPage />} />
+              <Route path="/config" element={<ConfigPage />} />
+            </Routes>
+          </div>
+        </div>
       </BrowserRouter>
     </>
   )

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 import { FaStickyNote } from "react-icons/fa";
@@ -9,6 +9,9 @@ import { FaRightLong } from "react-icons/fa6";
 
 function Sidebar() {
     const [isMinimized, setIsMinimized] = useState(true);
+    const location = useLocation();
+    const isActive = (path: string) => location.pathname === path;
+
     return (
         <aside className={`h-screen p-2 transition-all duration-300 ${isMinimized ? 'w-20' : 'w-64'}`}>
             <nav className="h-full flex flex-col bg-[#001BB7] rounded-md gap-5">
@@ -35,13 +38,15 @@ function Sidebar() {
                     <ul className="flex flex-col gap-6 px-5 text-white">
                         <li className="flex gap-2 items-center ">
                             <IoMdHome className="text-3xl" />
-                            <Link to="/" className="flex-1 text-2xl  gap-2 hover:bg-[#0046FF] transition-colors duration-300 rounded-2xl p-2">
-                                Home
+                            <Link to="/" className={`flex-1 text-xl  gap-2  transition-colors duration-300 rounded-3xl p-2 
+                            ${isActive('/') ? 'bg-[#0046FF]' : 'hover:bg-[#3D72FF]'}`}>
+                                Dashboard
                             </ Link>
                         </li>
                         <li className="flex gap-2 items-center ">
                             <IoIosSettings className="text-3xl" />
-                            <Link to="/config" className="flex-1 text-2xl gap-2 hover:bg-[#0046FF] transition-colors duration-300 rounded-2xl p-2">
+                            <Link to="/config" className={`flex-1 text-xl  gap-2  transition-colors duration-300 rounded-3xl p-2 
+                            ${isActive('/config') ? 'bg-[#0046FF]' : 'hover:bg-[#3D72FF]'}`}>
                                 Configuration
                             </ Link>
                         </li>
@@ -51,12 +56,14 @@ function Sidebar() {
                 {isMinimized && (
                     <ul className="flex flex-col gap-6 px-5 text-white items-center  ">
                         <li>
-                            <Link to="/" className="block hover:bg-[#0046FF] transition-colors duration-300 rounded-3xl p-2" >
+                            <Link to="/" className={`block transition-colors duration-300 rounded-3xl p-2
+                                ${isActive('/') ? 'bg-[#0046FF]' : 'hover:bg-[#3D72FF]' }`} >
                                 <IoMdHome className="text-3xl" />
                             </ Link>
                         </li>
                         <li>
-                            <Link to="/config" className="block hover:bg-[#0046FF] transition-colors duration-300 rounded-3xl p-2" >
+                            <Link to="/config" className={`block transition-colors duration-300 rounded-3xl p-2
+                                ${isActive('/config') ? 'bg-[#0046FF]' : 'hover:bg-[#3D72FF]' }`} >
                                 <IoIosSettings className="text-3xl" />
                             </ Link>
 

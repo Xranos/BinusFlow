@@ -1,7 +1,15 @@
+import ModalOverlay from "./modalOverlay"
 
-function AddColorModal(){
+type AddColorProps = {
+    onClose: () => void;
+};
+
+function AddColorModal({onClose}: AddColorProps){
     return(
         <div>
+            <ModalOverlay  onClose={onClose}>
+
+            </ModalOverlay>
 
         </div>
     )

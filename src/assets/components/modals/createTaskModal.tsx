@@ -5,6 +5,7 @@ type CreateTaskModalProps = {
 };
 
 function CreateTaskModal({ onClose }: CreateTaskModalProps) {
+    
     return (
         <ModalOverlay onClose={onClose}>
             <div className="bg-[#001BB7] w-275  rounded-xl p-4  flex flex-col ">
@@ -32,7 +33,9 @@ function CreateTaskModal({ onClose }: CreateTaskModalProps) {
                 </div>
 
                 <div className="flex items-center ml-auto pr-3 pt-5 gap-5 ">
-                    <button className="bg-[#F34646] text-[#F5F1DC] text-lg rounded-xl px-10 py-2 transition duration-200 hover:brightness-50">Cancel</button>
+                    <button className="bg-[#F34646] text-[#F5F1DC] text-lg rounded-xl px-10 py-2 transition duration-200 hover:brightness-50"
+                    onClick={onClose}>Cancel</button>
+
                     <button className="bg-[#F5F1DC] text-[#001BB7] text-lg rounded-xl px-10 py-2 transition duration-200 hover:brightness-50 ">Save</button>
                 </div>
             </div>

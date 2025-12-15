@@ -1,10 +1,18 @@
+import ModalOverlay from "./modalOverlay"
 
-function DeleteAllTaskModal() {
+type DeleteAllTaskModalProps = {
+    onClose: () => void;
+};
+
+function DeleteAllTaskModal({onClose}: DeleteAllTaskModalProps) {
     return (
-        <div>
-
-        </div>
+         <ModalOverlay onClose={onClose}>
+            <div className="bg-[#001BB7] w-275  rounded-xl p-4  flex flex-col ">
+                    
+            </div>
+         </ModalOverlay>
     )
 }
 
 export default DeleteAllTaskModal
+

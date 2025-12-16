@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+import ColorBox from "../assets/components/colorBox";
+
 import { IoMdAdd } from "react-icons/io";
 
 function ConfigPage() {
@@ -14,10 +16,8 @@ function ConfigPage() {
                         <h2 className="text-[#535353] text-3xl pt-5 ">
                             Color List
                         </h2>
-                        <div className="bg-[#FF8040] h-[635px] w-225 rounded-md px-8 pt-15 ">
+                        <div className="bg-[#FF8040] h-[465px] w-225 rounded-md px-8 pt-15 ">
                             <div className="grid grid-cols-8 gap-4">
-                                
-
                             </div>
                         </div>
                     </div>

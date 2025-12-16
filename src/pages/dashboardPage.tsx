@@ -16,7 +16,7 @@ function DashboardPage() {
             <div className="pr-10 pl-20 pt-4">
                 <Toolbar />
             </div>
-            <div className="grid grid-cols-3 gap-40 pt-5 pl-10 pr-10">
+            <div className="grid grid-cols-3 gap-25 pt-5 pl-10 pr-10">
                 <Taskboard Icon={<TiFlashOutline/>} title="To Do" />
                 <Taskboard Icon={<FaRunning />}title="In Progress"/>
                 <Taskboard Icon={<FaCheck />} title="Done"/>

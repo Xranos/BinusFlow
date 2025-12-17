@@ -1,10 +1,10 @@
-import type { Color } from "../interfaces";
+import type { Color, Task } from "../interfaces";
 import { createContext, useContext, useState } from "react";
 import type { ReactNode } from "react";
 
 interface ColorContextType {
     colors: Color[]
-    addColor: (hex: string) => void;
+    addColor: (color: Omit<Color, 'colorId'>) => void;
     deleteColor: (colorId: number) => void;
 }
 
@@ -18,13 +18,16 @@ export function ColorProvider({ children }: { children: ReactNode }) {
         { colorId: 3, hex: "#3357FF" },
         { colorId: 4, hex: "#FFFFFF" },
     ]);
+    const [nextId, setNextId] = useState(5);
 
-    const addColor = (hex: string) => {
-
+    const addColor = (color: Omit<Color, 'colorId'>) => {
+        const newColor: Color = {...color, colorId:nextId};
+        setColors([...colors, newColor]);
+        setNextId(nextId+1);
     }
 
     const deleteColor = (colorId: number) => {
-
+        setColors(colors.filter(color => color.colorId !== colorId))
     }
 
     return (
@@ -32,4 +35,10 @@ export function ColorProvider({ children }: { children: ReactNode }) {
             {children}
         </ColorContext.Provider>
     )
+}
+
+export function useColors(){
+    const context = useContext(ColorContext)
+    if (!context) throw new Error("error using colorcontext");
+    return context
 }

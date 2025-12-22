@@ -14,13 +14,13 @@ function ViewTaskModal({ status, title, description, onClose }: ViewTaskModalPro
         <ModalOverlay onClose={onClose}>
             <div className="bg-[#001BB7] w-275  rounded-xl p-4  flex flex-col ">
                 <div className="flex gap-7 text-center ml-auto pr-30 pt-10">
-                    <div className="flex gap-4 flex-none">
-                        <h1 className="text-[#F5F1DC] text-lg">Status</h1>
+                    <div className="flex gap-4 flex-none pr-40">
+                        <h1 className="text-[#F5F1DC] text-lg text-center">Status</h1>
                         <input
                             type="text"
                             value={status}
                             readOnly
-                            className="bg-[#F5F1DC] rounded-xl w-60 p-2 "
+                            className="bg-[#F5F1DC] text-[#001BB7] font-medium rounded-xl w-50 pl-10  "
                         >
                         </input>
                     </div>

@@ -1,8 +1,7 @@
-import { use, useState } from "react";
+import { useState } from "react";
 import Taskboard from "../assets/components/taskboard"
 import Toolbar from "../assets/components/toolbar"
 import CreateTaskModal from "../assets/components/modals/createTaskModal";
-import AddColorModal from "../assets/components/modals/addColorModal";
 
 import { useTasks } from "../assets/context/taskContext";
 
@@ -13,17 +12,9 @@ import { FaCheck } from "react-icons/fa";
 function DashboardPage() {
     const { tasks, updateTask } = useTasks();
 
-    tasks.forEach((task, index) => {
-        console.log(`Task ${index}:`, {
-            id: task.taskId,
-            title: task.title,
-            status: task.status,
-            statusType: typeof task.status
-        });
-    });
-
     const [draggedTaskId, setDraggedTaskId] = useState<number | null>(null);
     const [showModal, setShowModal] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('')
 
     const handleDragStart = (taskId: number) => {
         setDraggedTaskId(taskId);
@@ -40,20 +31,30 @@ function DashboardPage() {
         }
     };
 
-    const todoTasks = tasks.filter(task => task.status === 'toDo');
-    const inProgressTasks = tasks.filter(task => task.status === 'inProgress');
-    const doneTasks = tasks.filter(task => task.status === 'done');
+    const filteredTask = tasks.filter(task => {
+        const query = searchQuery.toLocaleLowerCase();
+        return (
+            task.title.toLowerCase().includes(query) || task.description.toLocaleLowerCase().includes(query)
+        );
+    });
+
+    const todoTasks = filteredTask.filter(task => task.status === 'To Do');
+    const inProgressTasks = filteredTask.filter(task => task.status === 'In Progress');
+    const doneTasks = filteredTask.filter(task => task.status === 'Done');
 
     return (
         <div>
             <div className="pr-10 pl-20 pt-4">
-                <Toolbar />
+                <Toolbar
+                    searchQuery={searchQuery}
+                    onSearchChange={setSearchQuery}
+                />
             </div>
             <div className="grid grid-cols-3 gap-25 pt-5 pl-10 pr-10">
                 <Taskboard
                     Icon={<TiFlashOutline />}
                     title="To Do"
-                    status="toDo"
+                    status="To Do"
                     tasks={todoTasks}
                     onDragStart={handleDragStart}
                     onDrop={handleDrop}
@@ -63,7 +64,7 @@ function DashboardPage() {
                 <Taskboard
                     Icon={<FaRunning />}
                     title="In Progress"
-                    status="inProgress"
+                    status="In Progress"
                     tasks={inProgressTasks}
                     onDragStart={handleDragStart}
                     onDrop={handleDrop}
@@ -73,7 +74,7 @@ function DashboardPage() {
                 <Taskboard
                     Icon={<FaCheck />}
                     title="Done"
-                    status="done"
+                    status="Done"
                     tasks={doneTasks}
                     onDragStart={handleDragStart}
                     onDrop={handleDrop}

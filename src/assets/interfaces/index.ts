@@ -2,7 +2,7 @@ export interface Task{
     taskId: number;
     title: string;
     description : string;
-    status: "toDo" | "inProgress" | "done";
+    status: "To Do" | "In Progress" | "Done";
     color: string;
 }
 

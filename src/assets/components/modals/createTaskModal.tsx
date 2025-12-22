@@ -12,7 +12,7 @@ function CreateTaskModal({ onClose }: CreateTaskModalProps) {
     const { addTask } = useTasks();
     const { colors } = useColors();
 
-    const [status, setStatus] = useState('toDo');
+    const [status, setStatus] = useState('To Do');
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [selectedColor, setSelectedColor] = useState(colors[0]?.hex || "#DE35A6");
@@ -45,9 +45,9 @@ function CreateTaskModal({ onClose }: CreateTaskModalProps) {
                             onChange={(e) => setStatus(e.target.value)}
                             className="bg-[#F5F1DC] rounded-xl w-60 "
                         >
-                            <option value="toDo">To Do</option>
-                            <option value="inProgress">In Progress</option>
-                            <option value="done">Done</option>
+                            <option value="To Do">To Do</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Done">Done</option>
                         </select>
                     </div>
                     <div className="flex gap-4 items-center relative">

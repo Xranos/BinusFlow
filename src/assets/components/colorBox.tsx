@@ -1,18 +1,23 @@
 import type { Color } from "../interfaces"
 
-interface colorBoxProps{
+interface colorBoxProps {
     color: Color;
-    onDelete : () => void
+    onDelete: () => void
 }
 
-function ColorBox({color, onDelete}: colorBoxProps){
+function ColorBox({ color, onDelete }: colorBoxProps) {
     return (
         <div >
-            <div className="w-22 h-22" style={{backgroundColor: color.hex}}>
-                <button className="absolute -top-2 -right-2 w-3 h-3 bg-red-400 rounded-full" onClick={onDelete}></button>
+            <div
+                className="relative w-22 h-22"
+                style={{ backgroundColor: color.hex }}>
+                <button
+                    className="absolute -top-3.5 -right-3 w-7 h-7 bg-red-400 rounded-full border border-black hover:brightness-125 transition-all duration-200"
+                    onClick={onDelete}>
+                </button>
             </div>
         </div>
-        
+
     )
 }
 

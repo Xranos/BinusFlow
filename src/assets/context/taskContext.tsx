@@ -7,6 +7,7 @@ interface TaskContextType {
     addTask: (task: Omit<Task, 'taskId'>) => void;
     deleteTask: (taskId: number) => void;
     updateTask: (taskId: number, updateTask: Partial<Task>) => void;
+    deleteAllTasks: () => void
 }
 
 const TaskContext = createContext<TaskContextType | undefined>(undefined);
@@ -29,8 +30,13 @@ export function TaskProvider({children}: {children: ReactNode}) {
         setTasks(tasks.map(task => task.taskId === taskId ? {... task, ...updateTask} : task))
     }
 
+    const deleteAllTasks = () => {
+        setTasks([]);
+        setNextId(1);
+    }
+
     return(
-        <TaskContext.Provider value={{tasks, addTask, deleteTask, updateTask}}>
+        <TaskContext.Provider value={{tasks, addTask, deleteTask, updateTask, deleteAllTasks}}>
             {children}
         </TaskContext.Provider>
     );

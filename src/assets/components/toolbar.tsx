@@ -26,9 +26,9 @@ function Toolbar() {
                     <input type="text" placeholder="Search..." className=" w-235 h-12 px-4 py-2 rounded-4xl text-[#F5F1DC] bg-[#0046FF] 
                 placeholder:text-[#F5F1DC] focus:outline-white focus:outline-1" />
                     <div className="block text-[#F5F1DC] text-5xl flex gap-5">
-                        <IoMdAdd className="bg-[#0046FF] hover:bg-[#3D72FF] transition-colors duration-300 rounded-3xl p-2"
+                        <IoMdAdd className="bg-[#0046FF] hover:bg-[#3D72FF] transition-colors duration-300 rounded-3xl p-2 cursor-pointer"
                             onClick={() => setIsCreateOpen(true)} />
-                        <FaTrash className="bg-[#0046FF] hover:bg-[#3D72FF] transition-colors duration-300 rounded-3xl p-2"
+                        <FaTrash className="bg-[#0046FF] hover:bg-[#3D72FF] transition-colors duration-300 rounded-3xl p-2 cursor-pointer"
                         onClick={() => setIsDeleteAllOpen(true)}/>
                     </div>
                 </div>

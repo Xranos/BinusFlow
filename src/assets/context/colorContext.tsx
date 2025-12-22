@@ -13,10 +13,9 @@ const ColorContext = createContext<ColorContextType | undefined>(undefined);
 
 export function ColorProvider({ children }: { children: ReactNode }) {
     const [colors, setColors] = useState<Color[]>([
-        { colorId: 1, hex: "#FF5733" },
-        { colorId: 2, hex: "#33FF57" },
-        { colorId: 3, hex: "#3357FF" },
-        { colorId: 4, hex: "#FFFFFF" },
+        { colorId: 1, hex: "#ED1C1C" },
+        { colorId: 2, hex: "#201C1C" },
+        { colorId: 3, hex: "#EB22C6" }
     ]);
     const [nextId, setNextId] = useState(5);
 

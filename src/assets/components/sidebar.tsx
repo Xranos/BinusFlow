@@ -28,9 +28,9 @@ function Sidebar() {
                         </div>
                     )}
                     <button onClick={() => setIsMinimized(!isMinimized)} className={`text-white rounded-2xl  ${isMinimized ? 'absolute left-12 top-3' : ''}`}>
-                        {isMinimized ? <FaRightLong className="bg-[#0046FF] hover:bg-[#001BB7] transition-colors duration-300 text-3xl rounded-2xl m-2 p-1 " />
+                        {isMinimized ? <FaRightLong className="bg-[#0046FF] hover:bg-[#001BB7] transition-colors duration-300 text-3xl rounded-2xl m-2 p-1  cursor-pointer" />
                             :
-                            <FaLeftLong className="bg-[#0046FF] hover:bg-[#001BB7] transition-colors duration-300 text-3xl rounded-2xl m-2 p-1" />}
+                            <FaLeftLong className="bg-[#0046FF] hover:bg-[#001BB7] transition-colors duration-300 text-3xl rounded-2xl m-2 p-1 cursor-pointer" />}
                     </button>
                 </div>
 
@@ -57,13 +57,13 @@ function Sidebar() {
                     <ul className="flex flex-col gap-6 px-5 text-white items-center  ">
                         <li>
                             <Link to="/" className={`block transition-colors duration-300 rounded-3xl p-2
-                                ${isActive('/') ? 'bg-[#0046FF]' : 'hover:bg-[#3D72FF]' }`} >
+                                ${isActive('/') ? 'bg-[#0046FF]' : 'hover:bg-[#3D72FF]'}`} >
                                 <IoMdHome className="text-3xl" />
                             </ Link>
                         </li>
                         <li>
                             <Link to="/config" className={`block transition-colors duration-300 rounded-3xl p-2
-                                ${isActive('/config') ? 'bg-[#0046FF]' : 'hover:bg-[#3D72FF]' }`} >
+                                ${isActive('/config') ? 'bg-[#0046FF]' : 'hover:bg-[#3D72FF]'}`} >
                                 <IoIosSettings className="text-3xl" />
                             </ Link>
 

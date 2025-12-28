@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ModalOverlay from "./modalOverlay"
 
 type ViewTaskModalProps = {
@@ -59,3 +58,4 @@ function ViewTaskModal({ status, title, description, onClose }: ViewTaskModalPro
 }
 
 export default ViewTaskModal
+

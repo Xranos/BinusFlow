@@ -17,17 +17,17 @@ function Taskboard({ title = "TaskBoard", Icon, status, tasks, onDragStart, onDr
             <div
                 onDragOver={onDragOver}
                 onDrop={() => onDrop(status)}
-                className="bg-[#F5F1DC] h-[595px] min-h-[595px] max-h-[595px] w-full rounded-lg flex flex-col"
+                className="bg-[#F5F1DC] h-[85vh] max-h-[85h] w-full rounded-lg flex flex-col"
             >
-                <div className="flex text-[#001BB7] gap-5 p-5 items-center ">
+                <div className="flex text-[#001BB7] gap-5 p-5 items-center justify-center">
                     <span className="text-4xl text-black">
                         {Icon}
                     </span>
                     <span className="text-3xl ">{title}</span>
                 </div>
 
-                <div className="flex-1 w-full overflow-y-auto px-4 py-2">
-                    <div className="mx-auto grid grid-cols-[auto_auto] gap-x-15 gap-y-2">
+                <div className="flex-1 w-full overflow-y-auto px-4 py-2 flex items-start justify-center">
+                    <div className="mx-auto grid grid-cols-[auto_auto] gap-x-10 gap-y-5 ">
                         {tasks.map((task) => (
                             <Task
                                 key={task.taskId}

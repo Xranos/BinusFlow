@@ -16,16 +16,16 @@ function ConfigPage() {
     return (
         <>
             <div className="px-10 pt-5">
-                <div className="bg-[#F5F1DC] rounded-2xl flex items-start justify-start">
-                    <div className="flex flex-col p-7 gap-5">
+                <div className="bg-[#F5F1DC] rounded-2xl flex items-start justify-start h-[95vh] max-h-[95h] w-full overflow-hidden min-h-0">
+                    <div className="flex flex-col p-7 gap-5 h-full min-h-0">
                         <h1 className="text-[#F5F1DC] text-5xl bg-[#FF8040] rounded-md p-5 w-fit ">
                             This is configuration page
                         </h1>
-                        <div className="pl-4 flex flex-col gap-3">
+                        <div className="pl-4 flex flex-col gap-3 h-full">
                             <h2 className="text-[#535353] text-3xl pt-5 ">
                                 Color List
                             </h2>
-                            <div className="bg-[#FF8040] min-h-[630px] w-225 rounded-md px-8 pt-15 ">
+                            <div className="bg-[#FF8040] h-full w-225 rounded-md px-8 pt-15 overflow-y-auto">
                                 <div className="grid grid-cols-8 gap-4">
                                     {colors.map((color) => (
                                         <ColorBox

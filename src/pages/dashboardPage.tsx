@@ -50,7 +50,7 @@ function DashboardPage() {
                     onSearchChange={setSearchQuery}
                 />
             </div>
-            <div className="grid grid-cols-3 gap-25 pt-5 pl-10 pr-10">
+            <div className="grid grid-cols-3 gap-25 pt-5 pl-10 pr-10 items-start">
                 <Taskboard
                     Icon={<TiFlashOutline />}
                     title="To Do"

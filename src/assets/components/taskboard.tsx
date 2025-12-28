@@ -17,7 +17,7 @@ function Taskboard({ title = "TaskBoard", Icon, status, tasks, onDragStart, onDr
             <div
                 onDragOver={onDragOver}
                 onDrop={() => onDrop(status)}
-                className="bg-[#F5F1DC] h-[85vh] max-h-[85h] w-full rounded-lg flex flex-col"
+                className="bg-[#F5F1DC] h-[83vh] max-h-[83h] w-full rounded-lg flex flex-col"
             >
                 <div className="flex text-[#001BB7] gap-5 p-5 items-center justify-center">
                     <span className="text-4xl text-black">
